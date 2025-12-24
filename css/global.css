@@ -1,0 +1,117 @@
+:root {
+  --White: hsl(0, 100%, 100%);
+  --Purple-100: hsl(275, 100%, 97%);
+  --Purple-600: hsl(292, 16%, 49%);
+  --Purple-400: hsl(293, 100%, 50%);
+  --Purple-950: hsl(292, 42%, 14%);
+}
+
+@font-face {
+  font-family: "Work Sans";
+  src: url("../assets/fonts/WorkSans-VariableFont_wght.ttf");
+}
+
+html {
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
+}
+
+body {
+  overflow: hidden;
+  background: url("../assets/images/background-pattern-mobile.svg") no-repeat;
+  background-position: top center;
+  background-color: var(--Purple-600);
+  background-size: 100% auto;
+  margin: 2rem;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: "Work Sans";
+}
+
+@media all and (width > 40rem) {
+  body {
+    background-image: url("../assets/images/background-pattern-desktop.svg");
+  }
+}
+
+.hero.faq {
+  background-color: var(--White);
+  padding: 1.5rem;
+  border-radius: 20px;
+  max-width: 25rem;
+}
+
+.title .icon {
+  display: flex;
+}
+
+.title .icon img {
+  aspect-ratio: 1;
+  width: 2rem;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-block-end: 1.5rem;
+}
+
+.title h2 {
+  font-size: 2rem;
+  margin: 0;
+  user-select: none;
+}
+
+.faq-content .accordion-btn {
+  text-align: start;
+  padding-inline: 0 2rem;
+  position: relative;
+  border: none;
+  background: none;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 700;
+  user-select: none;
+  font-size: 1.0125rem;
+}
+
+.faq-content > div:not(:last-of-type) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.faq-content > div {
+  margin-top: 1rem;
+  padding-block-end: 1rem;
+}
+
+.faq-content .accordion-btn:hover {
+  color: var(--Purple-400);
+}
+
+.faq-content .accordion-btn img {
+  position: absolute;
+  inset: 0 0 0 auto;
+  pointer-events: none;
+}
+
+.faq-content .accordion {
+  color: var(--Purple-600);
+  font-size: 1rem;
+  user-select: none;
+  margin: 0;
+  margin-block-start: .5rem;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .faq-content .accordion {
+    transition: height 0.3s ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-content .accordion {
+    transition: none;
+  }
+}
