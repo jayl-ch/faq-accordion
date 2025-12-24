@@ -1,5 +1,6 @@
 const accordionBtn = document.querySelectorAll(".accordion-btn");
 const accordionWrap = document.querySelectorAll(".accordion-wrapper");
+let isAnimating;
 
 function setShow(btn) {
   const content = btn.nextElementSibling;
@@ -7,6 +8,13 @@ function setShow(btn) {
   content.hidden = false;
   content.style.height = "0px";
   content.style.height = content.scrollHeight + "px";
+  content.addEventListener(
+    "transitionend",
+    () => {
+      isAnimating = false;
+    },
+    { once: true }
+  );
 }
 
 function setHidden(btn) {
@@ -19,6 +27,7 @@ function setHidden(btn) {
     "transitionend",
     () => {
       content.hidden = true;
+      isAnimating = false;
     },
     { once: true }
   );
@@ -35,8 +44,11 @@ function collapseAccordion() {
 }
 
 function setActiveBtn(btn) {
+  if (isAnimating) return;
   const expanded = btn.getAttribute("aria-expanded") === "true";
   btn.setAttribute("aria-expanded", !expanded);
+
+  isAnimating = true;
 
   if (!(btn.getAttribute("aria-expanded") === "true")) {
     setHidden(btn);
