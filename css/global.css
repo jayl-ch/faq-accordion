@@ -9,17 +9,18 @@
 @font-face {
   font-family: "Work Sans";
   src: url("../assets/fonts/WorkSans-VariableFont_wght.ttf");
+  font-weight: 400, 600, 700;
 }
 
 html {
-  font-size: clamp(1rem, 1.2vw, 1.5rem);
+  font-size: clamp(1rem, 1.3vw, 1.5rem);
 }
 
 body {
   overflow: hidden;
   background: url("../assets/images/background-pattern-mobile.svg") no-repeat;
   background-position: top center;
-  background-color: var(--Purple-600);
+  background-color: var(--Purple-100);
   background-size: 100% auto;
   margin: 2rem;
   display: grid;
