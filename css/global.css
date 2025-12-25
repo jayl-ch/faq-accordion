@@ -77,13 +77,14 @@ body {
   font-size: 1.0125rem;
 }
 
-.faq-content > div:not(:last-of-type) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-}
 
 .faq-content > div {
-  margin-top: 1rem;
+  margin-block-start: 1rem;
   padding-block-end: 1rem;
+}
+
+.faq-content > div:not(:last-of-type) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .faq-content .accordion-btn:hover {
